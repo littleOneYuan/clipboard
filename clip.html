@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+
+	<body>
+		<span class="btn1" id="bttn" data-clipboard-text='静态文本1'>Copy</span>
+		<button class="btn" data-clipboard-text='静态文本2'>Copy</button>
+		<button class="btn" data-clipboard-text='静态文本3'>Copy</button>
+
+		<!-- 通过cdn导入 -->
+		<script src="https://cdn.jsdelivr.net/npm/clipboard@2/dist/clipboard.min.js"></script>
+		<!-- 导入本地 -->
+		<!-- <script src="file:///E:Bloggongzuothemesnextsourcejssrcclipboard.min.js"></script> -->
+		<!-- 3. js中使用class选择器进行实例化 -->
+		<script>
+			//使用类选择器实例化,不可忽略
+			var clipboard = new ClipboardJS('#bttn');
+			//监听事件给出提示,可忽略
+			clipboard.on('success', function(e) {
+				alert("复制成功" + e.text);
+			});
+			clipboard.on('error', function(e) {
+				alert("复制失败");
+			});
+		</script>
+	</body>
+
+</html>
